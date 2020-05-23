@@ -1,8 +1,18 @@
 # Ionoid.io Docs Working Repo
 
-## File Structure
+## Install VuePress
 
-The current (May 23, 2020) folder structure is:
+Better install VuePress globally
+
+```sh
+yarn global add vuepress
+# or
+npm install -g vuepress
+```
+
+## Directory Structure
+
+The current (May 23, 2020) directory structure is:
 
 ```
 .
@@ -133,7 +143,9 @@ solution:
 Simply run the following command to start the dev live server:
 
 ```bash
-vuepress dev
+yarn dev
+# or
+npm run dev
 ```
 
 Then open [localhost:8080](http://localhost:8080). When you change any file,
@@ -142,13 +154,10 @@ the `config.js` file, you need to restart the dev live server.
 
 Sometimes it bugs, you get a blank page, just restart the dev live server.
 
-# Build
+# Deploy
 
-To build the site content, simply run the following command:
+Once you've done all changes, simply run the deploy script:
 
-
-```bash
-vuepress build
+```sh
+./deploy.sh
 ```
-
-You will find all the necessary files in `./vupepress/dist/` folder.
