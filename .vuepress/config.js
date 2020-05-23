@@ -1,4 +1,5 @@
 module.exports = {
+  title: "Ionoid IoT Documentation",
   themeConfig: {
     logo: '/brand.png',
     nav: [
