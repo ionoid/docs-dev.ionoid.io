@@ -1,0 +1,41 @@
+# Getting Started
+
+Start your IoT development journey by first creating your ionoid.io account,
+please follow the instructions below.
+
+## Create Your Account
+
+- Visit [Ionoid.io dashboard](https://dashboard.ionoid.io)
+- Sign up by clicking on **Register now**
+
+![Go to register page](/steps/go_to_register_page.gif)
+
+- Fill in the required informations
+- Accept our [terms of service](https://ionoid.io/terms/)
+- Click on **Create account**
+
+![Fill out personal informations](/steps/enter_register_informations.gif)
+
+## Verify Email Address
+
+- Check your inbox for an email from **support@ionoid.io** to verify your email
+address
+
+![Verify email address](/steps/verify_your_email_message.gif)
+
+- Click on the **Verify Email** link to activate your account
+- You will be redirected to the [Ionoid.io dashboard](https://dashboard.ionoid.io)
+dashboard to automatically activate your account
+
+## Sign In
+- Once activated, you will be redirected to the login page, enter your
+  credentials then click on **Login**
+
+![Login to account](/steps/login.gif)
+
+::: tip Have Questions?
+We're always happy to help with IoT projects or other questions you might have!
+Check our [documentation](https://docs.ionoid.io/#/), contact
+support <support@ionoid.io>, or connect with our sales team: sales@opendevices.io.
+You can also chat live with other developers in  [#slack](https://ionoidcommunity.slack.com/join/shared_invite/enQtODAzODgwOTIyMDY4LWExNWVmMDJhMDE2YWYyMjE3N2FlOGNlZjM4NDlmYmM5MmNhYWY1ZTZmOWMwYTYxYTMxNTQzODYzYmRmODMzOWI)
+:::
