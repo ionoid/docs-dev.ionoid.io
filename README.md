@@ -161,3 +161,5 @@ Once you've done all changes, simply run the deploy script:
 ```sh
 ./deploy.sh
 ```
+
+And don't forget to push your local changes with a `git push`
