@@ -46,12 +46,12 @@ The current (May 23, 2020) directory structure is:
 
 The important files here are:
 
-# `./index.md` File: The Main Docs Website Page
+### `./index.md` File: The Main Docs Website Page
 
 I've already created a simple minimalistic home page, you can change it if you
 want.
 
-# `./docs/` Folder: One File for each Section
+### `./docs/` Folder: One File for each Section
 
 Files that you add here must be listed in the `./.vuepress/config.js` file, for
 example:
@@ -86,7 +86,7 @@ You can change the title of each section if you wish. If you change a file name
 in the `./docs/` folder, do not forget to update it also in
 `./.vuepress/config.js`
 
-# `./.vuepress/config.js` File: The Website Configuration File
+### `./.vuepress/config.js` File: The Website Configuration File
 
 Usually you will not have to edit this file very often, except if:
 
@@ -97,7 +97,7 @@ Usually you will not have to edit this file very often, except if:
 - You want to change the title that appears in the left sidebar, for this edit
   the `module.exports.themeConfig.sidebar[0].title`
 
-# `./.vuepress/public/` Folder: The Public Assets
+### `./.vuepress/public/` Folder: The Public Assets
 
 Here you put any asset you need to be public, the main assets we need in our
 docs website are the animated GIFs of different steps described in the docs.
