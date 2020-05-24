@@ -3,7 +3,7 @@ module.exports = {
   themeConfig: {
     logo: '/brand.png',
     nav: [
-      { text: 'Docs', link: '/docs/' },
+      { text: 'Docs', link: '/docs/introduction.md' },
       { text: 'Create Account', link: 'https://dashboard.ionoid.io/register' },
       { text: 'Sign in', link: 'https://dashboard.ionoid.io/login' },
       { text: 'Contact', link: 'https://ionoid.io/contact/' },
