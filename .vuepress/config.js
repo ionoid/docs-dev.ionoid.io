@@ -16,7 +16,7 @@ module.exports = {
         children: [
           {
             title: 'Introduction',
-            path: '/docs/'
+            path: '/docs/introduction.md'
           },
           {
             title: 'Getting Started',

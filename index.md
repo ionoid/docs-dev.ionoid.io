@@ -7,7 +7,7 @@ sidebar: false
   <p id='secondary-title'>
     IoT Next Generation Deployment
   </p>
-  <button id="get-started-button" onclick="window.location='/docs/getting-started.html'">Get Started</button>
+  <button id="get-started-button" onclick="window.location='/docs/introduction.html'">Get Started</button>
 </figure>
 <div id="features">
   <div class='feature-left'>
