@@ -1,3 +1,7 @@
+---
+dashboardUrl: https://dashboard-dev.ionoid.io
+---
+
 # Projects
 
 Ionoid.io is structured as projects and devices belonging to these projects. To
@@ -5,7 +9,7 @@ add a device and be able to manage it, you first need to create a project.
 
 ## Create a Project
 
-- After signin in, click on **Create new project** button
+- After signin in, click on <a :href="$frontmatter.dashboardUrl+'/projects/new'" target="_blank">Create new project</a>
 
 ![Click on Create Project Button](/steps/click_on_create_project_button.gif)
 
@@ -24,13 +28,13 @@ unless you unlock the project architecture.
 :::
 
 - Finish the project creation with informations related to your project, then
-  click on **Create**
+  click on the **Create** button
 
 ![Create Project](/steps/finish_create_project.gif)
 
-Now that the project has been created, you can start to [add
-devices](#add-a-device-to-a-project) to this project. Each device will have a
-configuration data consisting of:
+Now that the project has been created, you can start
+<a href="/docs/register-a-device.html" target="_blank">adding devices</a> to this
+project. Each device will have a configuration data consisting of:
 
 - Name of the device (optional)
 - Runing OS image

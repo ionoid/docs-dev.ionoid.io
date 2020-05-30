@@ -2,7 +2,7 @@
 
 Ionoid.io is an IoT device management platform, with apps deployment and OTA
 software updates to scale your IoT solution and Edge Computing experience.
-From automotive, industrial to startups, with ionoid.io you are only a few clicks
+From automotive, industrial to startups, with Ionoid.io you are only a few clicks
 from deploying your solutions at hyperscale.
 <br>
 <br>

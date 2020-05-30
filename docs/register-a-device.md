@@ -1,3 +1,7 @@
+---
+dashboardUrl: https://dashboard-dev.ionoid.io
+---
+
 # Register a Device
 
 Devices are the main driving forces of IoT, and this is why Ionoid.io dashboard

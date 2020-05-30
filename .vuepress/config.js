@@ -1,5 +1,6 @@
 module.exports = {
   title: "Ionoid IoT Documentation",
+  dahboardUrl: "https://dashboard-dev.ionoid.io",
   themeConfig: {
     logo: '/brand.png',
     nav: [

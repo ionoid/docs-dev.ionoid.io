@@ -1,18 +1,22 @@
+---
+dashboardUrl: https://dashboard-dev.ionoid.io
+---
+
 # Getting Started
 
-Start your IoT development journey by first creating your ionoid.io account,
+Start your IoT development journey by first creating your Ionoid.io account,
 please follow the instructions below.
 
 ## Create Your Account
 
-- Visit [Ionoid.io dashboard](https://dashboard.ionoid.io)
-- Sign up by clicking on **Register now**
+- Visit the <a :href="$frontmatter.dashboardUrl" target="_blank">Ionoid.io dashboard</a>
+- Click on <a :href="$frontmatter.dashboardUrl+'/register'" target="_blank">Register now</a>
 
 ![Go to register page](/steps/go_to_register_page.gif)
 
 - Fill in the required informations
-- Accept our [terms of service](https://ionoid.io/terms/)
-- Click on **Create account**
+- Accept our [Terms of Service](https://ionoid.io/terms/)
+- Click on the **Create account** button
 
 ![Fill out personal informations](/steps/enter_register_informations.gif)
 
@@ -29,7 +33,7 @@ dashboard to automatically activate your account
 
 ## Sign In
 - Once activated, you will be redirected to the login page, enter your
-  credentials then click on **Login**
+  credentials then click on <a :href="$frontmatter.dashboardUrl+'/login'" target="_blank">Login</a>
 
 ![Login to account](/steps/login.gif)
 
