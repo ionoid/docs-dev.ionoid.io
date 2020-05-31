@@ -36,8 +36,16 @@ module.exports = {
             path: '/docs/deploy-iot-apps.md'
           },
           {
+            title: 'IoT Apps Architecture',
+            path: '/docs/iot-apps-architecture.md'
+          },
+          {
             title: 'IoT Apps Basic Examples',
             path: '/docs/iot-apps-basic-examples.md'
+          },
+          {
+            title: 'Organizations and Collaboration',
+            path: '/docs/organizations-and-collaboration.md'
           },
           {
             title: 'Debug IoT Devices',
