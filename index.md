@@ -17,7 +17,7 @@ sidebar: false
     IoT Apps deployment and OTA system updates
   </div>
   <div class='feature-left'>
-    Secure Linux-IoT for your hardware
+    <i class="fab fa-linux"></i> Secure Linux-IoT for your hardware
   </div>
   <div class='feature-right'>
     Rollout and rollback Apps in realtime

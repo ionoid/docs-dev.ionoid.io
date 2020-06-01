@@ -1,4 +1,7 @@
 module.exports = {
+  head: [
+    ['script', {src: 'https://kit.fontawesome.com/1b98495d92.js', crossorigin: 'anonymous'}]
+  ],
   title: "Ionoid IoT Documentation",
   dahboardUrl: "https://dashboard-dev.ionoid.io",
   themeConfig: {
