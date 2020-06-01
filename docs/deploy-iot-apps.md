@@ -38,8 +38,7 @@ to go to the *device details page*.
 - Click on the **&#xFE19;** button and choose
 **Deploy app on this device** action:
 
--- GIF WHERE WE GO TO A DEVICE DETAILS PAGE, CLICK ON MORE ACTIONS, AND SELECT
-ACTION DEPLOY APP ON THIS DEVICE --
+![Click on Deploy App Button](/steps/deploy-iot-apps/go_to_device_details_page_click_on_deploy_app.gif)
 
 - On the window that appears, you can optionally add/remove environment variables
 for this app
