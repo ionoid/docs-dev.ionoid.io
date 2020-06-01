@@ -53,13 +53,12 @@ for that, use [this public URL](https://storage.googleapis.com/public.opendevice
 After few seconds, you will receive realtime messages about the status and
 progress of the app deployment on the device.
 
--- GIF WHERE WE PASTE A URL ON THE DEPLOY APP IN THE DEVICE DETAILS PAGE, AND
-WAIT TO SEE REALTIME MESSAGES --
+![Paste the App Public URL](/steps/deploy-iot-apps/on_device_details_page_paste_app_url_and_wait_realtime_messages.gif)
 
 Once the app deployed on this device, you can see it listed on *the project app
 list page* or on the *device app list page*:
 
--- GIF WHERE WE NAVIGATE TO THE PROJECT APP LIST PAGE --
+![Paste the App Public URL](/steps/deploy-iot-apps/from_project_details_page_go_to_project_apps_page.gif)
 -- GIF WHERE WE NAVIGATE TO THE DEVICE APP LIST PAGE --
 
 ### Deploy on all devices of a project
