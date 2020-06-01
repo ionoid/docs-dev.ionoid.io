@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IoT App Architecture | Ionoid IoT Documentation</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <script src="https://kit.fontawesome.com/1b98495d92.js" crossorigin="anonymous"></script>
+    <meta name="description" content="">
+    <link rel="preload" href="/assets/css/0.styles.0c26e1fc.css" as="style"><link rel="preload" href="/assets/js/app.8ab78002.js" as="script"><link rel="preload" href="/assets/js/2.c6600c88.js" as="script"><link rel="preload" href="/assets/js/12.5383648a.js" as="script"><link rel="prefetch" href="/assets/js/10.1965a6a8.js"><link rel="prefetch" href="/assets/js/11.26ba838d.js"><link rel="prefetch" href="/assets/js/13.7d1c7f4c.js"><link rel="prefetch" href="/assets/js/14.9811b37c.js"><link rel="prefetch" href="/assets/js/15.7a8f82b1.js"><link rel="prefetch" href="/assets/js/16.090c6ef9.js"><link rel="prefetch" href="/assets/js/17.4162f289.js"><link rel="prefetch" href="/assets/js/18.3b078aff.js"><link rel="prefetch" href="/assets/js/3.5675ac92.js"><link rel="prefetch" href="/assets/js/4.b4ac3152.js"><link rel="prefetch" href="/assets/js/5.08882edc.js"><link rel="prefetch" href="/assets/js/6.bcb5fa4e.js"><link rel="prefetch" href="/assets/js/7.1acba8f6.js"><link rel="prefetch" href="/assets/js/8.b2c86cdb.js"><link rel="prefetch" href="/assets/js/9.18ed9931.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0c26e1fc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/brand.png" alt="Ionoid IoT Documentation" class="logo"> <span class="site-name can-hide">Ionoid IoT Documentation</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/docs/introduction.html" class="nav-link">
+  Docs
+</a></div><div class="nav-item"><a href="https://dashboard.ionoid.io/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Create Account
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://dashboard.ionoid.io/login" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sign in
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://ionoid.io/contact/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Contact
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/ionoid/docs.ionoid.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/docs/introduction.html" class="nav-link">
+  Docs
+</a></div><div class="nav-item"><a href="https://dashboard.ionoid.io/register" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Create Account
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://dashboard.ionoid.io/login" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sign in
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://ionoid.io/contact/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Contact
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/ionoid/docs.ionoid.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Ionoid.io Docs</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/docs/introduction.html" class="sidebar-link">Introduction</a></li><li><a href="/docs/getting-started.html" class="sidebar-link">Getting Started</a></li><li><a href="/docs/projects.html" class="sidebar-link">Projects</a></li><li><a href="/docs/devices.html" class="sidebar-link">Devices</a></li><li><a href="/docs/deploy-iot-apps.html" class="sidebar-link">Deploy IoT Apps</a></li><li><a href="/docs/iot-apps-architecture.html" aria-current="page" class="active sidebar-link">IoT Apps Architecture</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#overview" class="sidebar-link">Overview</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#static-binaries" class="sidebar-link">Static Binaries</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#archive-apps" class="sidebar-link">Archive Apps</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#docker-apps" class="sidebar-link">Docker Apps</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#snap-apps" class="sidebar-link">Snap Apps</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#building-a-python-runtime-based-on-alpine-linux" class="sidebar-link">Building a Python Runtime Based on Alpine Linux</a></li><li class="sidebar-sub-header"><a href="/docs/iot-apps-architecture.html#building-a-node-js-runtime-based-on-alpine-linux" class="sidebar-link">Building a Node.js runtime based on Alpine Linux</a></li></ul></li><li><a href="/docs/iot-apps-basic-examples.html" class="sidebar-link">IoT Apps Basic Examples</a></li><li><a href="/docs/organizations-and-collaboration.html" class="sidebar-link">Organizations and Collaboration</a></li><li><a href="/docs/debug-iot-devices.html" class="sidebar-link">Debug IoT Devices</a></li><li><a href="/docs/supported-boards-and-os.html" class="sidebar-link">Supported Boards and OS</a></li><li><a href="/docs/faq.html" class="sidebar-link">FAQ</a></li><li><a href="/docs/impressum.html" class="sidebar-link">Impressum</a></li><li><a href="/docs/legal.html" class="sidebar-link">Legal</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="iot-app-architecture"><a href="#iot-app-architecture" class="header-anchor">#</a> IoT App Architecture</h1> <p>Ionoid IoT Apps are apps that are self contained with all their metadata
+included and dependencies.</p> <p>Installed apps are located on device storage at:</p> <div class="language- extra-class"><pre class="language-text"><code>/data/apps/store/
+</code></pre></div><p>For every application, there will be a corresponding directory:</p> <div class="language- extra-class"><pre class="language-text"><code>/data/apps/store/appname
+</code></pre></div><p>All files corresponding to an App are located under its path. This make
+it easy to stop, <strong>disable</strong> then to completely remove applications.</p> <h2 id="overview"><a href="#overview" class="header-anchor">#</a> Overview</h2> <h3 id="iot-apps"><a href="#iot-apps" class="header-anchor">#</a> IoT Apps</h3> <p><a href="https://ionoid.io/" target="_blank" rel="noopener noreferrer">Ionoid.io<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> supports multiple IoT App formats:</p> <ol><li><p>Static binaries without library or other filesystem dependencies.
+If you are deploying <a href="https://en.wikipedia.org/wiki/Static_build" target="_blank" rel="noopener noreferrer">Static
+Binaries<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> then please keep
+reading this document.</p></li> <li><p>Archive
+[tarball](https://en.wikipedia.org/wiki/Tar_(computing) or
+<a href="https://en.wikipedia.org/wiki/Zip_(file_format)" target="_blank" rel="noopener noreferrer">Zip<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> apps.
+If you are deplying Archive apps then please keep reading this document.</p></li> <li><p>Modern <a href="https://docker.com" target="_blank" rel="noopener noreferrer">docker<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> containers <strong>in progress - still
+under development</strong>.
+If you are deploying <a href="https://docker.com" target="_blank" rel="noopener noreferrer">docker container<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> apps then
+please go directly to this link <a href="/apps/dockerApps.html">docker Apps</a></p></li> <li><p>Universal Linux Apps <a href="https://snapcraft.io/" target="_blank" rel="noopener noreferrer">Ubuntu Snaps<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> <strong>in progress - still under development</strong>.
+If you are deploying Universal Linux Apps that are <a href="https://snapcraft.io" target="_blank" rel="noopener noreferrer">Ubuntu
+Snaps<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> then please do directly to this link <a href="/apps/snapApps.html">Snap
+Apps</a></p></li></ol> <h3 id="app-yaml-format"><a href="#app-yaml-format" class="header-anchor">#</a> App YAML Format</h3> <p>Each App is described using The App yaml format. The App yaml is
+a simple manifest to describe how the app should work, it is fully
+described in the <code>app.yaml</code> file, and only works with apps that
+are static binaries or archive apps.</p> <p>Docker apps and Snaps do not need the <code>app.yaml</code> file, they already
+contain their own app manifest and are auto handled withing their
+appropriate agents.
+Visit this link for <a href="/apps/dockerApps.html">docker Apps</a> or this one for
+<a href="/apps/snapApps.html">Snap Apps</a>.</p> <p>The <code>app.yaml</code> file should be present in the root directory of an
+archive file. Every App must have its corresponding <code>app.yaml</code> file.
+For static binaries with no dependencies, an <code>app.yaml</code> file will be
+auto-generated and used to define how the App should run.</p> <p>The <code>app.yaml</code> content:</p> <p>(lines starting with <code>#</code> are comments and have no futher semantics)</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token comment"># Name of APP must be Alphanumeric and can contain the following</span>
+<span class="token comment"># special characters &quot;_&quot;, &quot;.&quot; and &quot;-&quot;.</span>
+<span class="token comment"># Minimum 2 characters, up to 64 characters.</span>
+<span class="token key atrule">name</span><span class="token punctuation">:</span> appname
+
+<span class="token comment"># Version of App</span>
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">1.0</span>
+
+<span class="token comment"># Description of App</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> My App
+
+<span class="token comment"># List of Applications inside the same IoT App, the final IoT</span>
+<span class="token comment"># App can include one app entry or several apps.</span>
+<span class="token key atrule">apps</span><span class="token punctuation">:</span>
+        <span class="token key atrule">hello-world</span><span class="token punctuation">:</span>
+                <span class="token comment"># Environment Vars for Hello World Optional</span>
+                <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+                        <span class="token key atrule">A</span><span class="token punctuation">:</span>      <span class="token string">&quot;ABC&quot;</span>
+
+                <span class="token comment"># Environment Files that contains Vars for App Optional</span>
+                <span class="token key atrule">environmentfiles</span><span class="token punctuation">:</span>
+                        <span class="token punctuation">-</span> <span class="token string">&quot;/etc/hello-world-environment1&quot;</span>
+                        <span class="token punctuation">-</span> <span class="token string">&quot;/etc/hello-world-environment2&quot;</span>
+
+                <span class="token comment"># Optional command to be executed before the main app.</span>
+                <span class="token comment"># Can be used to setup environment.</span>
+                <span class="token key atrule">start-command</span><span class="token punctuation">:</span>   /bin/echo &quot;starting hello<span class="token punctuation">-</span>world&quot;
+
+                <span class="token comment"># Main executable app</span>
+                <span class="token key atrule">command</span><span class="token punctuation">:</span>        /bin/hello<span class="token punctuation">-</span>world
+
+                <span class="token comment"># Optional command to be executed after the main app finishes</span>
+                <span class="token comment"># Can be used to clean up state.</span>
+                <span class="token key atrule">stop-command</span><span class="token punctuation">:</span>   /bin/echo &quot;hello<span class="token punctuation">-</span>world stopped&quot;
+
+                <span class="token comment"># Daemon Command type takes one of these values:</span>
+                <span class="token comment"># * simple:     the process configured with command</span>
+                <span class="token comment">#               is the main process of the service.</span>
+                <span class="token comment">#               This is the default value if daemon is</span>
+                <span class="token comment">#               not set.</span>
+                <span class="token comment"># * forking:    it is expected that the process configured</span>
+                <span class="token comment">#               with command will call fork() as part</span>
+                <span class="token comment">#               of its start-up</span>
+                <span class="token comment"># * oneshot:    it is expected that the process configured</span>
+                <span class="token comment">#               with command will exit or terminate</span>
+                <span class="token comment">#</span>
+                <span class="token comment"># For more details check systemd service documentation.</span>
+                <span class="token key atrule">daemon</span><span class="token punctuation">:</span> simple <span class="token punctuation">|</span> forking <span class="token punctuation">|</span> oneshot
+
+                <span class="token comment"># Starting from newer versions, to have the app run with</span>
+                <span class="token comment"># root privileges you have set it to true</span>
+                <span class="token key atrule">privileged</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token comment"># Volumes and mounts to be made accessible inside the application.</span>
+        <span class="token comment">#</span>
+        <span class="token comment"># Volumes support two types of mount 'rbind' and 'norbind':</span>
+        <span class="token comment">#   * rbind: perform a recursive bind mount of the volume.</span>
+        <span class="token comment">#   * norbind: perform a non-recusive bind mount.</span>
+        <span class="token comment">#</span>
+        <span class="token comment"># Volumes support different options:</span>
+        <span class="token comment">#   * rw: perform a regular writable bind mount (unless source is read-only).</span>
+        <span class="token comment">#   * ro: perform a read-only bind mount.</span>
+        <span class="token comment">#</span>
+        <span class="token punctuation">-</span> src=filesystem_path<span class="token punctuation">:</span>dst=app_path<span class="token punctuation">:</span>type=rbind<span class="token punctuation">:</span>options=rw
+        <span class="token punctuation">-</span> src=filesystem_path<span class="token punctuation">:</span>dst=app_path<span class="token punctuation">:</span>type=norbind<span class="token punctuation">:</span>options=ro
+
+        <span class="token comment"># /dev, /proc and /sys are already mounted inside the app</span>
+        <span class="token comment"># no need to mount them again.</span>
+
+        <span class="token comment"># Mounting etc configuration inside the app:</span>
+        <span class="token punctuation">-</span> src=/etc<span class="token punctuation">:</span>dst=/etc<span class="token punctuation">,</span>type=rbind<span class="token punctuation">,</span>options=ro
+
+        <span class="token comment"># If you want to make the root-filesystem available then the</span>
+        <span class="token comment"># following volume mount is the safest instruction.</span>
+        <span class="token punctuation">-</span> src=/<span class="token punctuation">:</span>dst=/<span class="token punctuation">:</span>type=norbind<span class="token punctuation">,</span>options=ro
+
+
+<span class="token comment"># Health check is a special command to do health checking on</span>
+<span class="token comment"># your one or multiple apps</span>
+<span class="token comment"># still under development</span>
+<span class="token key atrule">health-check</span><span class="token punctuation">:</span>
+                <span class="token key atrule">command</span><span class="token punctuation">:</span>        /bin/health<span class="token punctuation">-</span>check
+</code></pre></div><p>The <code>apps</code> field may contain several entries if you want to launch several IoT
+Apps together, distribute them together, or share the running
+environment. However we would recommend to always have one command per
+App.</p> <p>The <code>health-check</code> field is a special directive that may allow you to do
+health checks on your running apps. Right now it is <strong>in progress - still under
+development</strong>.</p> <p>So for a first example the <a href="https://storage.googleapis.com/public.opendevices.io/apps/arch/armv7/hello-world/hello-world-armv7-v0.2.tar" target="_blank" rel="noopener noreferrer">Hello World IoT App Example:<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>The content of the <code>app.yaml</code> file would be:</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">1.0</span>
+<span class="token key atrule">apps</span><span class="token punctuation">:</span>
+        <span class="token key atrule">hello-world</span><span class="token punctuation">:</span>
+                <span class="token key atrule">command</span><span class="token punctuation">:</span>        /bin/hello<span class="token punctuation">-</span>world
+</code></pre></div><h3 id="app-persist-data"><a href="#app-persist-data" class="header-anchor">#</a> App Persist Data</h3> <p>If you want to persist your data on the device and share it with other
+applications and the rest of the system, then this can be easily done by
+writing to the <code>/shared/$myappname</code> directory volume. Every application has by
+default the <code>/shared/$myappname</code> volume mounted and available inside its
+filesystem.</p> <p>From the application point of view:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>/shared/<span class="token variable">$myappname</span>
+</code></pre></div><p>From the rest of the system point of view and where you will find your data:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>/data/apps/shared/<span class="token variable">$myappname</span>
+</code></pre></div><p>The <code>/shared/$myappname</code> directory is <strong>world readable and accessible</strong>
+to the system. If you write secret files there, then make sure to set the
+appropriate access permissions, especially if your device is used by non-trusted
+third parties.</p> <p>The <code>/shared/$myappaname</code> directory is owned by:</p> <div class="language- extra-class"><pre class="language-text"><code>User: ionoid-app - means all applications running with that User ID can write to it.
+Group: ionoid-app  - means all applications running with that Group ID can write to this directory and share data.
+</code></pre></div><p>Volumes and mounts are the preferred mechanism to persist data on the
+device by applications and share it with others.</p> <h2 id="static-binaries"><a href="#static-binaries" class="header-anchor">#</a> Static Binaries</h2> <p>Static binaries are apps without libraries or other filesystem
+dependencies. Please visit <a href="https://en.wikipedia.org/wiki/Static_build" target="_blank" rel="noopener noreferrer">wikipedia Static
+Binaries<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> link to read more
+about it.</p> <p>Building static binaries differs from one language and environment to another, the following documentation will try to help you get started
+with it.</p> <p>The target OS here is of course <code>Linux</code>.</p> <h3 id="golang-static-binaries"><a href="#golang-static-binaries" class="header-anchor">#</a> Golang Static Binaries</h3> <p>Before we start with our steps on how to produce static binaries from
+Golang sources, lets see some variables and environments that we have to
+set, this will allows us to really produce statically linked binaries.</p> <p><code>CGO_ENABLED=0</code> Instruct compiler to disable CGO and statically link C
+bindings.</p> <p><code>GOOS=linux</code> Our target Operating System is Linux.</p> <p><code>GOARCH=$arch</code> Our target board architecure. If in doubts please visit
+our <a href="https://docs.ionoid.io/#/../NewProject/newProject?id=supported-boards-and-operating-systems-table" target="_blank" rel="noopener noreferrer">Supported boards
+Table<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.
+Current supported values for <code>$arch</code> are <code>amd64</code>, <code>arm</code> or <code>arm64</code>.</p> <p><code>GOARM=$version</code> If the target board architecture is <code>arm</code> then you have
+to set the <code>GOARM</code> or the <code>machine variable</code>. Current supported values
+are <code>6</code> or <code>7</code>. For a detailed explanation please visit the official
+<a href="https://github.com/golang/go/wiki/GoArm" target="_blank" rel="noopener noreferrer">Golang ARM Wiki<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>.</p> <p>Now to build Golang static binaries; lets use one of these build methods:</p> <ol><li>ARMv6</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">env</span> <span class="token assign-left variable">CGO_ENABLED</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">GOOS</span><span class="token operator">=</span>linux <span class="token assign-left variable">GOARCH</span><span class="token operator">=</span>arm <span class="token assign-left variable">GOARM</span><span class="token operator">=</span><span class="token number">6</span> <span class="token punctuation">\</span>
+        go build -tags <span class="token string">'osusergo netgo'</span> -ldflags <span class="token string">'-extldflags &quot;-static&quot;'</span> main.go
+</code></pre></div><ol start="2"><li>ARMv7</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">env</span> <span class="token assign-left variable">CGO_ENABLED</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">GOOS</span><span class="token operator">=</span>linux <span class="token assign-left variable">GOARCH</span><span class="token operator">=</span>arm <span class="token assign-left variable">GOARM</span><span class="token operator">=</span><span class="token number">7</span> <span class="token punctuation">\</span>
+        go build -tags <span class="token string">'osusergo netgo'</span> -ldflags <span class="token string">'-extldflags &quot;-static&quot;'</span> main.go
+</code></pre></div><ol start="3"><li>amd64</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">env</span> <span class="token assign-left variable">CGO_ENABLED</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">GOOS</span><span class="token operator">=</span>linux <span class="token assign-left variable">GOARCH</span><span class="token operator">=</span>amd64 <span class="token punctuation">\</span>
+        go build -tags <span class="token string">'osusergo netgo'</span> -ldflags <span class="token string">'-extldflags &quot;-static&quot;'</span> main.go
+</code></pre></div><h3 id="more-static-binaries"><a href="#more-static-binaries" class="header-anchor">#</a> More Static Binaries</h3> <p>We are going to add more static binaries support for other languages, it is under
+development.</p> <h3 id="deploy-static-binaries-using-ionoid-io"><a href="#deploy-static-binaries-using-ionoid-io" class="header-anchor">#</a> Deploy Static Binaries Using Ionoid.io</h3> <p>When deploying static binaries with <a href="https://ionoid.io/" target="_blank" rel="noopener noreferrer">Ionoid.io<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, there is no need
+to put it inside docker or write an <code>app.yaml</code> file for it. If your
+application has no external dependencies on either files or other
+applications, just upload it to the internet and point ionoid.io
+to its deployment URL.</p> <p>An <code>app.yaml</code> file will be auto-generated on the fly at the devices
+level using the following format:</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> $myappname
+<span class="token key atrule">version</span><span class="token punctuation">:</span> $unixtimestamp
+<span class="token key atrule">apps</span><span class="token punctuation">:</span>
+        <span class="token key atrule">$myappname</span><span class="token punctuation">:</span>
+                <span class="token key atrule">command</span><span class="token punctuation">:</span>        /bin/$myappname
+</code></pre></div><p>Example of a generated <code>app.yaml</code> of a <code>hello-world ARMv6</code> version.</p> <p>The complete source file and binaries of that hello-world App are
+located here:
+https://github.com/ionoid-io-projects/apps/tree/master/hello-world</p> <p>Auto-generated <code>app.yaml</code> of the hello-world example:</p> <div class="language-yaml extra-class"><pre class="language-yaml"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+<span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token number">1583693787</span>
+<span class="token key atrule">apps</span><span class="token punctuation">:</span>
+        <span class="token key atrule">hello-world</span><span class="token punctuation">:</span>
+                <span class="token key atrule">command</span><span class="token punctuation">:</span>        /bin/hello<span class="token punctuation">-</span>world
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>hello-world: is the the last resource file from the URL path.
+             In this example the URL is
+             'https://github.apps.ionoid.net/hello-world/arm6/build/bin/hello-world'
+             and the last part makes the App which is 'hello-world'.
+
+version: is the Unix timestamp in UTC (Coordinated Universal Time).
+</code></pre></div><p>To deploy your static binaries, upload them to the internet, and point the
+deployment URL to the right one.</p> <p>For more examples please visit our hosted sample Apps here: <a href="https://github.apps.ionoid.net/" target="_blank" rel="noopener noreferrer">Ionoid.io
+Sample Apps<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><img src="Ionoid-deploy-static-binary.png" alt="Deploy Static Binary"></p> <p><strong>Notes: More robust deployment methods are being developped, they will be added soon.</strong></p> <h2 id="archive-apps"><a href="#archive-apps" class="header-anchor">#</a> Archive Apps</h2> <p>Archive Apps are apps compressed files in
+<a href="https://en.wikipedia.org/wiki/Tar_(computing)" target="_blank" rel="noopener noreferrer">tar<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> or
+<a href="https://en.wikipedia.org/wiki/Zip_(file_format)" target="_blank" rel="noopener noreferrer">Zip<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> formats.</p> <p>Archive Apps are composed of the following files:</p> <div class="language- extra-class"><pre class="language-text"><code>* app.yaml      : App Basic information encoded in a Yaml file
+
+* meta/         : Meta directory that contains extra App metadata (Optional).
+
+* bin/          : Binary directory where the App may reside.
+
+* ...           : Rest of the App file system and other dependencies files.
+</code></pre></div><p>Example of a hello world App:
+<a href="https://storage.googleapis.com/public.opendevices.io/apps/arch/armv7/hello-world/hello-world-armv7-v0.2.tar" target="_blank" rel="noopener noreferrer">IoT App Golang Hello World<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>The content of the <code>app.yaml</code> file would be:</p> <div class="language- extra-class"><pre class="language-text"><code>name: hello-world
+version: 1.0
+apps:
+        hello-world:
+                command:        /bin/hello-world
+</code></pre></div><h3 id="build-archive-apps"><a href="#build-archive-apps" class="header-anchor">#</a> Build Archive Apps</h3> <p>These steps describe how we built our previous example <a href="https://storage.googleapis.com/public.opendevices.io/apps/arch/armv7/hello-world/hello-world-armv7-v0.2.tar" target="_blank" rel="noopener noreferrer">Hello World IoT App<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <ul><li><ol><li>Create and enter the App directory <code>hello-world</code>:</li></ol></li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> hello-world
+<span class="token builtin class-name">cd</span> hello-world
+</code></pre></div><ul><li><ol start="2"><li>Populate the App directory with <code>app.yaml</code> and executable files</li></ol></li></ul> <p>Content of hello-world directory should be:</p> <div class="language- extra-class"><pre class="language-text"><code>hello-world:/
+        ./app.yaml
+        ./bin/
+                hello-world
+
+</code></pre></div><p>In the above example the app hello-world filesystem contains the
+<code>app.yaml</code> file</p> <ul><li><ol start="3"><li>Tar archive file:</li></ol></li></ul> <p>To generate the App tar archive follow the example.</p> <p>Assuming you are building for ARMv7 use <code>armv7</code> if you are building for
+ARMv6 or amd64 then you can use corresponding arch. This is not
+mandatory, just best practice to be able to identify deployed tarball
+files.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> hello-world
+<span class="token function">tar</span> -cvf <span class="token punctuation">..</span>/hello-world-armv7-v0.2.tar *
+</code></pre></div><p>The <code>hello-world-armv7-v0.2.tar</code> is our final App that can be deployed
+to our IoT Devices.</p> <ul><li><ol start="4"><li>Or to generate the App zip archive</li></ol></li></ul> <p><strong>Under development, will be supported soon.</strong></p> <h2 id="docker-apps"><a href="#docker-apps" class="header-anchor">#</a> Docker Apps</h2> <p><a href="https://ionoid.io/" target="_blank" rel="noopener noreferrer">Ionoid.io<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> supports <a href="https://docker.com" target="_blank" rel="noopener noreferrer">docker<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> containers and apps.</p> <p><strong>This is still under development and will be released soon.</strong></p> <h2 id="snap-apps"><a href="#snap-apps" class="header-anchor">#</a> Snap Apps</h2> <p><a href="https://ionoid.io/" target="_blank" rel="noopener noreferrer">Ionoid.io<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> supports the Universal Linux Apps format
+that is known as <a href="https://snapcraft.io/" target="_blank" rel="noopener noreferrer">Ubuntu Snap<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> apps. These apps
+are supported only on <a href="https://ubuntu.com/core" target="_blank" rel="noopener noreferrer">Ubuntu Core<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> Operating
+System.</p> <p><a href="https://ubuntu.com/core" target="_blank" rel="noopener noreferrer">Ubuntu Core<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> has 10 years security updates provided by <a href="https://canonical.com" target="_blank" rel="noopener noreferrer">Canonical<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><strong>This is still under development and will be released soon.</strong></p> <h2 id="building-a-python-runtime-based-on-alpine-linux"><a href="#building-a-python-runtime-based-on-alpine-linux" class="header-anchor">#</a> Building a Python Runtime Based on Alpine Linux</h2> <p>This section describes how to create a python runtime, using one of the following method:</p> <ol><li>Add python package and modules to a prepared runtime.</li> <li>Build python runtime from scratch.</li></ol> <blockquote><p>if you have built a basic runtime following the previous section <strong>Build Basic Alpine Linux Runtime</strong>, use the method 1, otherwise use  method 2.</p></blockquote> <h3 id="add-python-package-and-modules-to-a-prepared-runtime"><a href="#add-python-package-and-modules-to-a-prepared-runtime" class="header-anchor">#</a> Add Python Package and Modules to a Prepared Runtime</h3> <ul><li>Open a terminal and create a directory for python runtime here named <strong>python-runtime</strong>.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> python-runtime
+</code></pre></div><ul><li>Extract the built runtime prepared in the previous section <strong>alpine-3.9-armhf.tar</strong> in a directory called <strong>python-runtime</strong> using the following command.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> -xvf alpine-3.9-armhf.tar -C python-runtime/
+</code></pre></div><ul><li>Run the following command to enter the runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">chroot</span> python-runtime/chroot/ /bin/sh -l
+</code></pre></div><blockquote><p>We use <strong>apk</strong> command to add packages to the runtime, APK stands for Alpine Linux package manager.</p> <ul><li>To install a package the syntax is :</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> package-name
+</code></pre></div></blockquote> <ul><li>Add python package to the runtime.</li></ul> <blockquote><p>Every command in the runtime is executed as <strong>root</strong>.</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache python3
+</code></pre></div><ul><li>Install pip, the python package manager.</li></ul> <div class="language- extra-class"><pre class="language-text"><code>apk add --no-cache py-pip
+</code></pre></div><ul><li>To exit from the runtime type <strong>exit</strong>.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">exit</span>
+</code></pre></div><ul><li>Build the python runtime tarball using the following command.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> cvvf python3-alpine-armhf.tar -C python-runtime/chroot/ <span class="token builtin class-name">.</span>
+</code></pre></div><h3 id="build-python-runtime-from-scratch"><a href="#build-python-runtime-from-scratch" class="header-anchor">#</a> Build Python Runtime from Scratch</h3> <h3 id="a-create-basic-runtime-based-on-alpine-linux"><a href="#a-create-basic-runtime-based-on-alpine-linux" class="header-anchor">#</a> a. Create basic runtime based on Alpine Linux</h3> <ul><li>Open a terminal and change directory into pieman directory.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> pieman
+</code></pre></div><ul><li>Run the following command to build the runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>
+<span class="token function">sudo</span> <span class="token function">env</span> <span class="token assign-left variable">PROJECT_NAME</span><span class="token operator">=</span>python-runtime <span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>rpi-3-b <span class="token assign-left variable">OS</span><span class="token operator">=</span>alpine-3.9-armhf <span class="token assign-left variable">CREATE_ONLY_CHROOT</span><span class="token operator">=</span>true ./pieman.sh
+
+</code></pre></div><ul><li>The built runtime will be located at <strong>build</strong> directory.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">ls</span> build/
+</code></pre></div><p>Sample output:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>python-runtime
+
+</code></pre></div><h3 id="b-add-packages-to-runtime"><a href="#b-add-packages-to-runtime" class="header-anchor">#</a> b. Add packages to runtime</h3> <ul><li>To add packages to your runtime, go to build directory.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> build
+</code></pre></div><ul><li>To enter the runtime. Type the following command.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">chroot</span> python-runtime/chroot/ /bin/sh -l
+</code></pre></div><blockquote><p>Every command in the runtime is executed as <strong>root</strong>.</p></blockquote> <ul><li>Setup alpine packages repository.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>setup-apkrepos
+</code></pre></div><p>Sample output:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>Available mirrors:
+<span class="token number">1</span><span class="token punctuation">)</span> dl-cdn.alpinelinux.org
+<span class="token number">2</span><span class="token punctuation">)</span> nl.alpinelinux.org
+<span class="token number">3</span><span class="token punctuation">)</span> uk.alpinelinux.org
+<span class="token number">4</span><span class="token punctuation">)</span> dl-2.alpinelinux.org
+<span class="token number">5</span><span class="token punctuation">)</span> dl-3.alpinelinux.org
+<span class="token number">6</span><span class="token punctuation">)</span> dl-4.alpinelinux.org
+<span class="token number">7</span><span class="token punctuation">)</span> dl-5.alpinelinux.org
+<span class="token number">8</span><span class="token punctuation">)</span> dl-8.alpinelinux.org
+<span class="token number">9</span><span class="token punctuation">)</span> mirror.yandex.ru
+<span class="token number">10</span><span class="token punctuation">)</span> mirrors.gigenet.com
+<span class="token number">11</span><span class="token punctuation">)</span> mirror1.hs-esslingen.de
+<span class="token number">12</span><span class="token punctuation">)</span> mirror.leaseweb.com
+<span class="token number">13</span><span class="token punctuation">)</span> mirror.fit.cvut.cz
+<span class="token number">14</span><span class="token punctuation">)</span> alpine.mirror.far.fi
+<span class="token number">15</span><span class="token punctuation">)</span> alpine.mirror.wearetriple.com
+<span class="token punctuation">..</span>.
+
+r<span class="token punctuation">)</span> Add random from the above list
+f<span class="token punctuation">)</span> Detect and <span class="token function">add</span> fastest mirror from above list
+e<span class="token punctuation">)</span> Edit /etc/apk/repositories with text editor
+
+Enter mirror number <span class="token punctuation">(</span><span class="token number">1</span>-44<span class="token punctuation">)</span> or URL to <span class="token function">add</span> <span class="token punctuation">(</span>or r/f/e/done<span class="token punctuation">)</span> <span class="token punctuation">[</span>f<span class="token punctuation">]</span>:
+</code></pre></div><ul><li>Install <strong>python</strong> package.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache python3
+</code></pre></div><ul><li>Install <strong>pip</strong>, the python package manager.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache py-pip
+</code></pre></div><ul><li>Update the python package manger</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>pip3 <span class="token function">install</span> --upgrade pip
+</code></pre></div><ul><li>To exit from the runtime type <strong>exit</strong>.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">exit</span>
+</code></pre></div><h3 id="c-build-python-runtime-tarball"><a href="#c-build-python-runtime-tarball" class="header-anchor">#</a> c. Build python runtime tarball.</h3> <ul><li>Once you finish to add all the python modules you need for your runtime, build the python runtime tarball using the following command.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> cvvf python3-alpine-armhf.tar -C python-runtime/chroot/ <span class="token builtin class-name">.</span>
+</code></pre></div><h3 id="add-python-modules"><a href="#add-python-modules" class="header-anchor">#</a> Add Python Modules</h3> <ul><li>You can add additional python module to your runtime before building the tarball using python package manager.</li> <li>Here as <strong>example</strong> we are going to install module to control Raspberry Pi GPIO channels.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>pip3 <span class="token function">install</span> RPi.GPIO
+</code></pre></div><h2 id="building-a-node-js-runtime-based-on-alpine-linux"><a href="#building-a-node-js-runtime-based-on-alpine-linux" class="header-anchor">#</a> Building a Node.js runtime based on Alpine Linux</h2> <p>This section describes how to create a Node.js runtime , using one of the following method:</p> <ol><li>Add Node.js package to a prepared runtime.</li> <li>Build Node.js runtime from scratch.</li></ol> <blockquote><p>if you have built a basic runtime following the previous section <strong>Build Basic Alpine Linux Runtime</strong>, use the method 1, otherwise use  method 2.</p></blockquote> <h3 id="add-node-js-package-and-modules-to-a-prepared-runtime"><a href="#add-node-js-package-and-modules-to-a-prepared-runtime" class="header-anchor">#</a> Add Node.js Package and Modules to a Prepared Runtime</h3> <ul><li>Open a terminal and create a directory for Node.js runtime here named nodejs-runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> nodejs-runtime
+</code></pre></div><ul><li>Extract the built runtime prepared in the previous section <strong>alpine-3.9-armhf.tar</strong> in a directory called <strong>nodejs-runtime</strong> using the following command.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> -xvf alpine-3.9-armhf.tar -C nodejs-runtime/
+</code></pre></div><ul><li>Run the following command to enter the runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">chroot</span> nodejs-runtime/chroot/ /bin/sh -l
+</code></pre></div><blockquote><p>We use <strong>apk</strong> command to add packages to the runtime, APK stands for Alpine Linux package manager.</p> <ul><li>To install a package the syntax is :</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> package-name
+</code></pre></div></blockquote> <ul><li>Add Node.js package to the runtime.</li></ul> <blockquote><p>Every command in the runtime is executed as <strong>root</strong>.</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache nodejs
+</code></pre></div><ul><li>Install npm, the Node.js package manager.</li></ul> <div class="language- extra-class"><pre class="language-text"><code>apk add --no-cache npm
+</code></pre></div><ul><li>To exit from the runtime type <strong>exit</strong>.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">exit</span>
+</code></pre></div><ul><li>Build the tarball.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> cvvf nodejs-alpine-armhf.tar -C nodejs-runtime/chroot/ <span class="token builtin class-name">.</span>
+</code></pre></div><h3 id="build-node-js-runtime-from-scratch"><a href="#build-node-js-runtime-from-scratch" class="header-anchor">#</a> Build Node.js Runtime From Scratch</h3> <h3 id="a-create-basic-runtime-based-on-alpine-linux-2"><a href="#a-create-basic-runtime-based-on-alpine-linux-2" class="header-anchor">#</a> a. Create basic runtime  based on Alpine Linux.</h3> <ul><li>Open a terminal and change directory into pieman directory.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">cd</span> pieman
+</code></pre></div><ul><li>Run the following command to build the runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">env</span> <span class="token assign-left variable">PROJECT_NAME</span><span class="token operator">=</span>nodejs-runtime <span class="token assign-left variable">DEVICE</span><span class="token operator">=</span>rpi-3-b <span class="token assign-left variable">OS</span><span class="token operator">=</span>alpine-3.9-armhf <span class="token assign-left variable">CREATE_ONLY_CHROOT</span><span class="token operator">=</span>true ./pieman.sh
+</code></pre></div><ul><li>The built runtime will be located at <strong>build</strong> directory.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">ls</span> build
+</code></pre></div><p>Sample output:</p> <div class="language- extra-class"><pre class="language-text"><code>nodejs-runtime
+</code></pre></div><h3 id="b-add-packages-to-node-js-runtime"><a href="#b-add-packages-to-node-js-runtime" class="header-anchor">#</a> b. Add packages to Node.js runtime.</h3> <ul><li>To enter the runtime, run the following command.</li></ul> <blockquote><p>Every command in the runtime is executed as <strong>root</strong>.</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">chroot</span> build/nodejs-runtime/chroot/ /bin/sh -l
+</code></pre></div><ul><li>Setup alpine packages repository.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>setup-apkrepos
+</code></pre></div><p>Sample output:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>Available mirrors:
+<span class="token number">1</span><span class="token punctuation">)</span> dl-cdn.alpinelinux.org
+<span class="token number">2</span><span class="token punctuation">)</span> nl.alpinelinux.org
+<span class="token number">3</span><span class="token punctuation">)</span> uk.alpinelinux.org
+<span class="token number">4</span><span class="token punctuation">)</span> dl-2.alpinelinux.org
+<span class="token number">5</span><span class="token punctuation">)</span> dl-3.alpinelinux.org
+<span class="token number">6</span><span class="token punctuation">)</span> dl-4.alpinelinux.org
+<span class="token number">7</span><span class="token punctuation">)</span> dl-5.alpinelinux.org
+<span class="token number">8</span><span class="token punctuation">)</span> dl-8.alpinelinux.org
+<span class="token number">9</span><span class="token punctuation">)</span> mirror.yandex.ru
+<span class="token number">10</span><span class="token punctuation">)</span> mirrors.gigenet.com
+<span class="token number">11</span><span class="token punctuation">)</span> mirror1.hs-esslingen.de
+<span class="token number">12</span><span class="token punctuation">)</span> mirror.leaseweb.com
+<span class="token number">13</span><span class="token punctuation">)</span> mirror.fit.cvut.cz
+<span class="token number">14</span><span class="token punctuation">)</span> alpine.mirror.far.fi
+<span class="token number">15</span><span class="token punctuation">)</span> alpine.mirror.wearetriple.com
+<span class="token punctuation">..</span>.
+
+r<span class="token punctuation">)</span> Add random from the above list
+f<span class="token punctuation">)</span> Detect and <span class="token function">add</span> fastest mirror from above list
+e<span class="token punctuation">)</span> Edit /etc/apk/repositories with text editor
+
+Enter mirror number <span class="token punctuation">(</span><span class="token number">1</span>-44<span class="token punctuation">)</span> or URL to <span class="token function">add</span> <span class="token punctuation">(</span>or r/f/e/done<span class="token punctuation">)</span> <span class="token punctuation">[</span>f<span class="token punctuation">]</span>:
+</code></pre></div><ul><li>Install <strong>Node.js</strong> package.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache nodejs
+</code></pre></div><ul><li>Install <strong>npm</strong> the Node.js package manager.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code>apk <span class="token function">add</span> --no-cache <span class="token function">npm</span>
+</code></pre></div><h3 id="c-build-node-js-runtime-tarball"><a href="#c-build-node-js-runtime-tarball" class="header-anchor">#</a> c. Build Node.js runtime tarball.</h3> <ul><li>Once you finish to add all the Node.js modules you need for your runtime, build the tarball.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">tar</span> cvvf alpine-3.9-armhf-nodejs.tar -C nodejs-runtime/chroot/ <span class="token builtin class-name">.</span>
+</code></pre></div><ul><li>exit to leave the runtime.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">exit</span>
+</code></pre></div><h3 id="add-node-js-modules"><a href="#add-node-js-modules" class="header-anchor">#</a> Add Node.js Modules</h3> <ul><li>You can add additional python module to your runtime before building the tarball using Node.js package manager.</li> <li>Here as example we are going to install <strong>bootstrap</strong> framework.</li></ul> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span>   bootstrap
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/deploy-iot-apps.html" class="prev">
+        Deploy IoT Apps
+      </a></span> <span class="next"><a href="/docs/iot-apps-basic-examples.html">
+        IoT Apps Basic Examples
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8ab78002.js" defer></script><script src="/assets/js/2.c6600c88.js" defer></script><script src="/assets/js/12.5383648a.js" defer></script>
+  </body>
+</html>
