@@ -1,4 +1,17 @@
 module.exports = {
+  plugins: [
+    [
+      'vuepress-plugin-zooming',
+      {
+        selector: '.page p img',
+        delay: 1000,
+        options: {
+          bgColor: 'black',
+          zIndex: 10000,
+        },
+      },
+    ],
+  ],
   head: [
     ['script', {src: 'https://kit.fontawesome.com/1b98495d92.js', crossorigin: 'anonymous'}]
   ],
