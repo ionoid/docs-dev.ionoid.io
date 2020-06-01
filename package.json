@@ -3,7 +3,9 @@
     "dev": "vuepress dev",
     "build": "vuepress build"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "vuepress-plugin-zooming": "^1.1.7"
+  },
   "dependencies": {
     "vuepress": "^1.5.0"
   }
