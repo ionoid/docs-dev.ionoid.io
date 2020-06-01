@@ -287,4 +287,8 @@ PAGE, THEN WE SEE REALTIME MESSAGES --
 
 ## Delete IoT Apps
 
+Coming soon
+
 ## More Actions on IoT Apps
+
+Coming soon
