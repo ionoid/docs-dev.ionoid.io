@@ -11,21 +11,21 @@ sidebar: false
 </figure>
 <div id="features">
   <div class='feature-left'>
-    IoT Device Management and Realtime monitoring
+    <i class="fal fa-monitor-heart-rate"></i> IoT Device Management and Realtime Monitoring
   </div>
   <div class='feature-right'>
-    IoT Apps deployment and OTA system updates
+    IoT Apps Deployment and OTA System Updates <i class="fal fa-upload"></i>
   </div>
   <div class='feature-left'>
-    <i class="fab fa-linux"></i> Secure Linux-IoT for your hardware
+    <i class="fab fa-linux"></i> Secure Linux-IoT for Your Hardware
   </div>
   <div class='feature-right'>
-    Rollout and rollback Apps in realtime
+    Rollout and Rollback Apps in Realtime <i class="fal fa-redo"></i>
   </div>
   <div class='feature-left'>
-    IoT data collection and sharing mechanisms
+    <i class="fal fa-share-alt"></i> IoT Data Collection and Sharing Mechanisms
   </div>
   <div class='feature-right'>
-    Simple, Powerful & Intuitive API
+    Simple, Powerful & Intuitive API <i class="fal fa-brackets-curly"></i>
   </div>
 </div>
